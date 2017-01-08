@@ -1,0 +1,30 @@
+{
+  "name": "binary-search-tree",
+  "version": "1.0.0",
+  "description": "binary search tree implementation",
+  "main": "BST.js",
+  "dependencies": {
+    "sinon-chai": "^2.8.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+	"sinon": "^1.4.0",
+    "mocha": "^3.2.0"
+  },
+  "scripts": {
+    "test": "mocha -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PDmitryY/binary-search-tree.git"
+  },
+  "keywords": [
+    "BST"
+  ],
+  "author": "PDmitryY",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PDmitryY/binary-search-tree/issues"
+  },
+  "homepage": "https://github.com/PDmitryY/binary-search-tree#readme"
+}
