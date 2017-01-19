@@ -106,31 +106,24 @@ class BinarySearchTree {
 			throw new Error('Tree does not exist')
 		};
 
-		if(this.root.value===value) {
-			return true;
-		};
-
-
 		let leaf = this.root;
 
-		/*while(true){
-			if(key < leaf.key){
-				if(leaf.left.key===key){
-					result = leaf.left;
-					break;
-				};
-				leaf = leaf.left;
-				
-			} else if (key >= leaf.key){
-				if(leaf.right.key===key){
-					result = leaf.right;
-					break;
-				};
-				leaf = leaf.right;
-			};
+		while(true){
+			if(leaf.value===value) {
+				return true;
+			}
+			else if(leaf.left.value === value){
+				return true;
+			}
+			else if(leaf.right.value === value){
+				return true;
+			}
+			else if(value!==){
+				leaf.left = leaf;
+			}
 		};
-		return result;*/
-	}
+		return false;
+	};
 
 	//retrieves ordered sequence of stored values in given order (order is boolean)
 

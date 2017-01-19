@@ -121,12 +121,42 @@ describe('Binary Search Tree', function() {
 		it('should throw an error if tree does not exist', function(){
 			let bst = new BinarySearchTree();
 			let left_right_value = 'root_value';
-			expect(bst.contains()).to.throw(new Error ('Tree does not exist'));
+			expect(function(){bst.contains('value');}).to.throw('Tree does not exist');
 		});
 		it('should return true if root contains value', function(){
 			let bst = new BinarySearchTree();
 			bst.insert(10, "root_value").insert(8, "left_value").insert(15, "right_value").insert(9, "left_right_value");
 			expect(bst.contains("root_value")).to.be.true;
+		});
+		it('should return true if left_value === value', function(){
+			let bst = new BinarySearchTree();
+			bst.insert(10, "root_value").insert(8, "left_value").insert(15, "right_value").insert(9, "left_right_value");
+			expect(bst.contains("left_value")).to.be.true;
+		});
+		it('should return true if right_value === value', function(){
+			let bst = new BinarySearchTree();
+			bst.insert(10, "root_value").insert(8, "left_value").insert(15, "right_value").insert(9, "left_right_value");
+			expect(bst.contains("right_value")).to.be.true;
+		});
+		it('should return true if left_left_value === value', function(){
+			let bst = new BinarySearchTree();
+			bst.insert(10, "root_value").insert(8, "left_value").insert(15, "right_value").insert(6, "left_left_value").insert(9, "left_right_value").insert(13, "right_left_value").insert(20, "right_right_value");
+			expect(bst.contains("left_left_value")).to.be.true;
+		});
+		it('should return true if left_right_value === value', function(){
+			let bst = new BinarySearchTree();
+			bst.insert(10, "root_value").insert(8, "left_value").insert(15, "right_value").insert(6, "left_left_value").insert(9, "left_right_value").insert(13, "right_left_value").insert(20, "right_right_value");
+			expect(bst.contains("left_right_value")).to.be.true;
+		});
+		it('should return true if right_left_value === value', function(){
+			let bst = new BinarySearchTree();
+			bst.insert(10, "root_value").insert(8, "left_value").insert(15, "right_value").insert(6, "left_left_value").insert(9, "left_right_value").insert(13, "right_left_value").insert(20, "right_right_value");
+			expect(bst.contains("right_left_value")).to.be.true;
+		});
+		it('should return true if right_right_value === value', function(){
+			let bst = new BinarySearchTree();
+			bst.insert(10, "root_value").insert(8, "left_value").insert(15, "right_value").insert(6, "left_left_value").insert(9, "left_right_value").insert(13, "right_left_value").insert(20, "right_right_value");
+			expect(bst.contains("right_right_value")).to.be.true;
 		});
 	});
 });
