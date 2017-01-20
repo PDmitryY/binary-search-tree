@@ -106,9 +106,10 @@ class BinarySearchTree {
 			throw new Error('Tree does not exist')
 		};
 
-		let leaf = this.root;
+		let leaf = this.root,
+			parent = this;
 
-		while(true){
+		while(leaf.value){
 			if(leaf.value===value) {
 				return true;
 			}
@@ -117,10 +118,22 @@ class BinarySearchTree {
 			}
 			else if(leaf.right.value === value){
 				return true;
+			};
+			if(leaf === parent.root){
+				leaf = leaf.left;
+				parent = parent.root;
 			}
-			else if(value!==){
-				leaf.left = leaf;
+			else if(leaf === parent.left){
+				leaf = parent.right;
 			}
+			else if(leaf === parent.right){
+				leaf = parent.left.left;
+				parent = parent.left;
+			}
+			else{
+				break;
+			};
+
 		};
 		return false;
 	};
