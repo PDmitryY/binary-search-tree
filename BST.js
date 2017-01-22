@@ -141,7 +141,7 @@ class BinarySearchTree {
 	//retrieves ordered sequence of stored values in given order (order is boolean)
 
 	traverse(order){
-
+		let result = [];
 	}
 
 	//verifies whether tree is well-formed binary search tree or not
