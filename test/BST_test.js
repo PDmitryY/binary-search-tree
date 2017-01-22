@@ -6,6 +6,16 @@ var Node = require("../Node");
 var expect = chai.expect;
 chai.use(sinonChai);
 
+const compareArrays = function(array1, array2){
+	if (Array.isArray(array1) && Array.isArray(array2)){
+		array1.every((v, k) => array2[k] === v) && array1.length === array2.length;
+	}
+	else {
+		throw new Error('Arguments are incorrect');
+	}
+}
+
+
 describe('Binary Search Tree', function() {
 	describe('constructor', function(){
 		it('should initialize root', function(){
@@ -159,4 +169,34 @@ describe('Binary Search Tree', function() {
 			expect(bst.contains("right_right_value")).to.be.true;
 		});
 	});
+	describe('traverse', function(){
+		it('should return empty array if tree does not exist', function(){
+			let bst = new BinarySearchTree();
+			expect(bst.traverse()).to.equal([]);
+		});
+		it('should return array with root.value inside if tree consist only root', function(){
+			let bst = new BinarySearchTree();
+			bst.insert(8, "root_value");
+			expect(bst.traverse()).to.equal(["root_value"]);
+		});
+		it('should return array, which consist values from tree in order from min key to max key', function(){
+			let bst = new BinarySearchTree();
+			bst
+				.insert(1, "1")
+				.insert(2, "2")
+				.insert(3, "3")
+				.insert(4, "4")
+				.insert(5, "5")
+				.insert(6, "6")
+				.insert(7, "7")
+				.insert(8, "8")
+				.insert(9, "9")
+				.insert(10, "10")
+				.insert(11, "11")
+				.insert(12, "12")
+				.insert(13, "13")
+				.insert(14, "14");
+			expect(compareArrays(bst.traverse(true), ["1","2","3","4","5","6","7","8","9","10","11","12","13","14"])).to.be.true;
+		})
+	})
 });
