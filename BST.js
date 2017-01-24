@@ -142,6 +142,14 @@ class BinarySearchTree {
 
 	traverse(order){
 		let result = [];
+		if (this.root === null){
+			return result;
+		}
+		else if(this.root&&!this.root.left&&!this.root.right){
+			result.push(this.root.value);
+			return result;
+		};
+
 	}
 
 	//verifies whether tree is well-formed binary search tree or not

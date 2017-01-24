@@ -8,7 +8,7 @@ chai.use(sinonChai);
 
 const compareArrays = function(array1, array2){
 	if (Array.isArray(array1) && Array.isArray(array2)){
-		array1.every((v, k) => array2[k] === v) && array1.length === array2.length;
+		return array1.every((v, k) => array2[k] === v) && array1.length === array2.length;
 	}
 	else {
 		throw new Error('Arguments are incorrect');
@@ -172,12 +172,13 @@ describe('Binary Search Tree', function() {
 	describe('traverse', function(){
 		it('should return empty array if tree does not exist', function(){
 			let bst = new BinarySearchTree();
-			expect(bst.traverse()).to.equal([]);
+			expect(compareArrays(bst.traverse(true), [])).to.be.true;
 		});
 		it('should return array with root.value inside if tree consist only root', function(){
 			let bst = new BinarySearchTree();
-			bst.insert(8, "root_value");
-			expect(bst.traverse()).to.equal(["root_value"]);
+			bst.insert(8, 'root_value');
+			console.log(bst.traverse(true));
+			expect(compareArrays(bst.traverse(true), ['root_value'])).to.be.true;
 		});
 		it('should return array, which consist values from tree in order from min key to max key', function(){
 			let bst = new BinarySearchTree();
